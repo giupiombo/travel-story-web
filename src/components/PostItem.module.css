@@ -1,0 +1,14 @@
+.item {
+  margin: 2%;
+  /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); */
+  padding: 1rem;
+  /* background-color: #fff7fa; */
+  border-radius: 10px;
+  width: 35rem;
+  text-align: center;
+  display: inline-block;
+}
+
+.item img {
+  width: 100%;
+}
