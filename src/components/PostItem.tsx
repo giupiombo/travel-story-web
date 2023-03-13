@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import classes from './PostItem.module.css';
 
 const PostItem: React.FC<{
@@ -6,6 +7,7 @@ const PostItem: React.FC<{
   date: string;
   text: string;
   image: string;
+  id: string;
 }> = (props) => {
   return (
     <div className={classes.item}>
@@ -13,7 +15,9 @@ const PostItem: React.FC<{
       <img src={props.image} alt={props.title} />
       <h4>Published by: {props.name}</h4>
       <p>{props.date}</p>
-      <p>{props.text}</p>
+      <Link href={'/' + props.id} className={classes.link}>
+        See more
+      </Link>
     </div>
   );
 };

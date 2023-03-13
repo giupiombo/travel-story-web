@@ -25,6 +25,7 @@ const AllPosts: React.FC<{ posts: any }> = (props) => {
               date={post.date}
               text={post.text}
               image={post.image}
+              id={post.id}
             />
           )
         )}

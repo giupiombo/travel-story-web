@@ -1,14 +1,31 @@
 .item {
   margin: 2%;
-  /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); */
   padding: 1rem;
-  /* background-color: #fff7fa; */
-  border-radius: 10px;
   width: 35rem;
   text-align: center;
   display: inline-block;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.item h2 {
+  letter-spacing: 0.2rem;
+}
+
+.item h4 {
+  letter-spacing: 0.2rem;
 }
 
 .item img {
+  height: 20rem;
   width: 100%;
+}
+
+.item a {
+  color: black;
+}
+
+.item a:hover,
+.item a:visited {
+  color: #ff6b35;
 }
