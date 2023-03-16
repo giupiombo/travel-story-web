@@ -1,6 +1,7 @@
 .newPost {
   flex: 1;
   margin-bottom: 5rem;
+  width: 100%;
 }
 
 .card {

@@ -1,7 +1,7 @@
 .item {
   margin: 2%;
   padding: 1rem;
-  width: 35rem;
+  max-width: 35rem;
   text-align: center;
   display: inline-block;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
