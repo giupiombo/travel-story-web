@@ -7,8 +7,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div
       style={{
-        // display: 'flex',
-        // flexDirection: 'column',
         minHeight: '100vh',
         width: '100%',
       }}
