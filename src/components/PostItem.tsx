@@ -15,9 +15,7 @@ const PostItem: React.FC<{
       <img src={props.image} alt={props.title} />
       <h4>Published by: {props.name}</h4>
       <p>{props.date}</p>
-      <Link href={'/' + props.id} className={classes.link}>
-        See more
-      </Link>
+      <Link href={'/' + props.id}>See more</Link>
     </div>
   );
 };

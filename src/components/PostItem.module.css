@@ -23,9 +23,11 @@
 
 .item a {
   color: black;
-}
-
-.item a:hover,
-.item a:visited {
-  color: #ff6b35;
+  text-decoration: none;
+  font-weight: bold;
+  border-style: ridge;
+  border-radius: 0.5rem;
+  border-color: #f7c59f;
+  background-color: #f7c59f;
+  padding: 0.25rem;
 }
