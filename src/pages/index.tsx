@@ -37,6 +37,7 @@ export async function getStaticProps() {
           title: string;
           name: string;
           text: string;
+          country: string;
           image: string;
           date: string;
           id: string;
@@ -44,6 +45,7 @@ export async function getStaticProps() {
           title: post.title,
           name: post.name,
           text: post.text,
+          country: post.country,
           image: post.image,
           date: post.date,
           id: post._id.toString(),

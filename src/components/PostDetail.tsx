@@ -5,6 +5,7 @@ const PostDetail: React.FC<{
   name: string;
   date: string;
   text: string;
+  country: string;
   image: string;
   id: string;
 }> = (props) => {
@@ -16,6 +17,9 @@ const PostDetail: React.FC<{
           Published by: {props.name} at {props.date}
         </h4>
         <img src={props.image} alt={props.title} />
+        <div className={classes.country}>
+          <p>{props.country}</p>
+        </div>
         <p>{props.text}</p>
       </div>
     </div>

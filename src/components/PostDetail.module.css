@@ -28,6 +28,13 @@
   width: 100%;
 }
 
+.country p {
+  font-style: italic;
+  letter-spacing: 0.2rem;
+  color: #ff6b35;
+  text-align: right;
+}
+
 .card {
   margin: 2%;
   padding: 2rem;

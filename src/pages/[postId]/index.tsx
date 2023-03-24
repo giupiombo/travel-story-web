@@ -8,6 +8,7 @@ const PostDetailPage: React.FC<{
     name: string;
     date: string;
     title: string;
+    country: string;
     image: string;
     text: string;
   };
@@ -22,6 +23,7 @@ const PostDetailPage: React.FC<{
         name={props.postData.name}
         date={props.postData.date}
         title={props.postData.title}
+        country={props.postData.country}
         image={props.postData.image}
         text={props.postData.text}
       />
@@ -68,6 +70,7 @@ export async function getStaticProps(context: { params: { postId: any } }) {
         name: selectedPost!.name,
         date: selectedPost!.date,
         title: selectedPost!.title,
+        country: selectedPost!.country,
         image: selectedPost!.image,
         text: selectedPost!.text,
       },

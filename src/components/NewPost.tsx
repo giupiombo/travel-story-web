@@ -1,11 +1,15 @@
 import Head from 'next/head';
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
+import countryList from 'react-select-country-list';
 import classes from './NewPost.module.css';
 
 const NewPost: React.FC<{ onAddPost: ({}) => void }> = (props) => {
+  const options = useMemo(() => countryList().getData(), []);
+
   const nameInputRef = useRef<HTMLInputElement>(null);
   const titleInputRef = useRef<HTMLInputElement>(null);
   const textInputRef = useRef<HTMLTextAreaElement>(null);
+  const countryInputRef = useRef<HTMLSelectElement>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
 
   function submitHandler(event: React.FormEvent) {
@@ -14,6 +18,7 @@ const NewPost: React.FC<{ onAddPost: ({}) => void }> = (props) => {
     const enteredName: string = nameInputRef.current!.value;
     const enteredTitle: string = titleInputRef.current!.value;
     const enteredText: string = textInputRef.current!.value;
+    const enteredCountry: string = countryInputRef.current!.value;
     let enteredImage: string = imageInputRef.current!.value;
 
     if (enteredImage.trim() === '') {
@@ -25,6 +30,7 @@ const NewPost: React.FC<{ onAddPost: ({}) => void }> = (props) => {
       name: enteredName,
       title: enteredTitle,
       text: enteredText,
+      country: enteredCountry,
       image: enteredImage,
       date: new Date().toLocaleString(),
     };
@@ -56,6 +62,19 @@ const NewPost: React.FC<{ onAddPost: ({}) => void }> = (props) => {
                 rows={10}
                 ref={textInputRef}
               ></textarea>
+            </div>
+            <div className={classes.control}>
+              <label htmlFor="country">Country</label>
+              <select
+                name="country"
+                id="country"
+                required
+                ref={countryInputRef}
+              >
+                {options.map((option) => (
+                  <option value={option.label}>{option.label}</option>
+                ))}
+              </select>
             </div>
             <div className={classes.control}>
               <label htmlFor="image">Image URL</label>
