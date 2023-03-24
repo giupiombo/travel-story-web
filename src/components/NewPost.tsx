@@ -26,13 +26,18 @@ const NewPost: React.FC<{ onAddPost: ({}) => void }> = (props) => {
         'https://kinsta.com/wp-content/uploads/2017/11/how-to-start-a-travel-blog.png';
     }
 
+    const date = new Date();
+    const formattedDate = `${date.toLocaleString('default', {
+      month: 'long',
+    })} ${date.getUTCDate()}, ${date.getFullYear()}`;
+
     const postData: {} = {
       name: enteredName,
       title: enteredTitle,
       text: enteredText,
       country: enteredCountry,
       image: enteredImage,
-      date: new Date().toLocaleString(),
+      date: formattedDate,
     };
 
     props.onAddPost(postData);

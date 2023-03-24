@@ -24,7 +24,7 @@ export async function getStaticProps() {
 
   const postsCollection = db.collection('posts');
 
-  const posts = await postsCollection.find().toArray();
+  const posts = await (await postsCollection.find().toArray()).reverse();
 
   client.close();
 

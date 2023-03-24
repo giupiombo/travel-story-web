@@ -21,6 +21,11 @@
   width: 100%;
 }
 
+.item p {
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
 .item a {
   color: black;
   text-decoration: none;
