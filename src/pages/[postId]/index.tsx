@@ -1,4 +1,4 @@
-import PostDetail from '@/components/PostDetail';
+import PostDetail from '@/components/PostDetail/PostDetail';
 import { MongoClient, ObjectId } from 'mongodb';
 import Head from 'next/head';
 

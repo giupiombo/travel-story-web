@@ -1,4 +1,4 @@
-import NewPost from '@/components/NewPost';
+import NewPost from '@/components/NewPost/NewPost';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 

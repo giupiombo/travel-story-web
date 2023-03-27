@@ -1,4 +1,4 @@
-import AllPosts from '@/components/AllPosts';
+import AllPosts from '@/components/AllPosts/AllPosts';
 import Head from 'next/head';
 import { MongoClient } from 'mongodb';
 

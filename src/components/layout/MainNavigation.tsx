@@ -5,6 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import Image from 'next/image';
 import plus from '../../images/plus.png';
 import home from '../../images/home.png';
+import analytics from '../../images/analytics.png';
 
 const MainNavigation: React.FC = () => {
   const router = useRouter();
@@ -15,6 +16,11 @@ const MainNavigation: React.FC = () => {
 
   const mobileView = (
     <ul>
+      <li>
+        <Link href="/analytics">
+          <Image src={analytics} alt="analytics" width={25} height={25} />
+        </Link>
+      </li>
       <li>
         <Link href="/">
           <Image src={home} alt="home" width={25} height={25} />
@@ -30,6 +36,13 @@ const MainNavigation: React.FC = () => {
 
   const desktopView = (
     <ul>
+      <li
+        className={
+          router.pathname === '/analytics' ? classes.active : undefined
+        }
+      >
+        <Link href="/analytics">ANALYTICS</Link>
+      </li>
       <li className={router.pathname === '/' ? classes.active : undefined}>
         <Link href="/">ALL POSTS</Link>
       </li>

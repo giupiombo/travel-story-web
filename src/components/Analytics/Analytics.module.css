@@ -1,0 +1,22 @@
+.analytics {
+  flex: 1;
+  width: 100%;
+  min-height: 80vh;
+  text-align: center;
+}
+
+.analytics h2 {
+  color: #1b4965;
+  letter-spacing: 0.2rem;
+}
+
+.card {
+  width: 30%;
+  margin: 2%;
+  padding: 1rem;
+  min-width: 30rem;
+  text-align: center;
+  display: inline-block;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
