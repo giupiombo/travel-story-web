@@ -15,23 +15,25 @@ const MainNavigation: React.FC = () => {
   });
 
   const mobileView = (
-    <ul>
-      <li>
-        <Link href="/">
-          <Image src={home} alt="home" width={25} height={25} />
-        </Link>
-      </li>
-      <li>
-        <Link href="/new-post">
-          <Image src={plus} alt="plus" width={25} height={25} />
-        </Link>
-      </li>
-      <li>
-        <Link href="/analytics">
-          <Image src={analytics} alt="analytics" width={25} height={25} />
-        </Link>
-      </li>
-    </ul>
+    <div className={classes.headerMobile}>
+      <ul>
+        <li>
+          <Link href="/">
+            <Image src={home} alt="home" width={25} height={25} />
+          </Link>
+        </li>
+        <li>
+          <Link href="/new-post">
+            <Image src={plus} alt="plus" width={25} height={25} />
+          </Link>
+        </li>
+        <li>
+          <Link href="/analytics">
+            <Image src={analytics} alt="analytics" width={25} height={25} />
+          </Link>
+        </li>
+      </ul>
+    </div>
   );
 
   const desktopView = (
@@ -56,7 +58,7 @@ const MainNavigation: React.FC = () => {
 
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>TravelStory</div>
+      {!isMobile && <div className={classes.logo}>TravelStory</div>}
       <nav>{isMobile ? mobileView : desktopView}</nav>
     </header>
   );

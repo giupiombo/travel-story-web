@@ -32,6 +32,11 @@
   margin-left: 3rem;
 }
 
+.headerMobile li {
+  margin-right: 3rem;
+  margin-left: 0rem;
+}
+
 .header a {
   text-decoration: none;
   font-size: 1.5rem;
