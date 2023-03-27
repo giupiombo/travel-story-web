@@ -1,30 +1,75 @@
 import Head from 'next/head';
 import classes from './Analytics.module.css';
 import React from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+} from 'chart.js';
+import { Doughnut, Line } from 'react-chartjs-2';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(
+  ArcElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const Analytics: React.FC<{ posts: any }> = (props) => {
-  let dataset: { label: string[]; data: number[] } = { label: [], data: [] };
+  let datasetCountry: { label: string[]; data: number[] } = {
+    label: [],
+    data: [],
+  };
+  let datasetMonth: { label: string[]; data: number[] } = {
+    label: [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ],
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  };
 
   props.posts.map((post: { country: string }): any => {
-    if (Object.values(dataset.label).includes(post.country)) {
-      let index = dataset.label.indexOf(post.country);
-      dataset.data[index] += 1;
+    if (Object.values(datasetCountry.label).includes(post.country)) {
+      let index = datasetCountry.label.indexOf(post.country);
+      datasetCountry.data[index] += 1;
     } else {
-      dataset.label.push(post.country);
-      dataset.data.push(1);
+      datasetCountry.label.push(post.country);
+      datasetCountry.data.push(1);
     }
   });
 
-  const data = {
-    labels: dataset.label,
+  props.posts.map((post: { date: string }): any => {
+    let month = post.date.split(' ')[0];
+    let index = datasetMonth.label.indexOf(month);
+    datasetMonth.data[index] += 1;
+  });
+
+  const dataCountry = {
+    labels: datasetCountry.label,
     datasets: [
       {
         label: '# of Posts',
-        data: dataset.data,
+        data: datasetCountry.data,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -46,6 +91,35 @@ const Analytics: React.FC<{ posts: any }> = (props) => {
     ],
   };
 
+  const dataMonth = {
+    labels: datasetMonth.label,
+    datasets: [
+      {
+        label: '# of Posts',
+        data: datasetMonth.data,
+        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    scales: {
+      y: {
+        ticks: {
+          stepSize: 1,
+        },
+      },
+    },
+  };
+
   return (
     <>
       <Head>
@@ -54,7 +128,11 @@ const Analytics: React.FC<{ posts: any }> = (props) => {
       <div className={classes.analytics}>
         <div className={classes.card}>
           <h2>Number of Posts per Country</h2>
-          <Doughnut data={data} />
+          <Doughnut data={dataCountry} className={classes.doughnut} />
+        </div>
+        <div className={classes.card}>
+          <h2>Number of Posts per Month</h2>
+          <Line options={options} data={dataMonth} className={classes.line} />
         </div>
       </div>
     </>

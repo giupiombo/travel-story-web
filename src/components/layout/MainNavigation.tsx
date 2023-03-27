@@ -17,11 +17,6 @@ const MainNavigation: React.FC = () => {
   const mobileView = (
     <ul>
       <li>
-        <Link href="/analytics">
-          <Image src={analytics} alt="analytics" width={25} height={25} />
-        </Link>
-      </li>
-      <li>
         <Link href="/">
           <Image src={home} alt="home" width={25} height={25} />
         </Link>
@@ -31,18 +26,16 @@ const MainNavigation: React.FC = () => {
           <Image src={plus} alt="plus" width={25} height={25} />
         </Link>
       </li>
+      <li>
+        <Link href="/analytics">
+          <Image src={analytics} alt="analytics" width={25} height={25} />
+        </Link>
+      </li>
     </ul>
   );
 
   const desktopView = (
     <ul>
-      <li
-        className={
-          router.pathname === '/analytics' ? classes.active : undefined
-        }
-      >
-        <Link href="/analytics">ANALYTICS</Link>
-      </li>
       <li className={router.pathname === '/' ? classes.active : undefined}>
         <Link href="/">ALL POSTS</Link>
       </li>
@@ -50,6 +43,13 @@ const MainNavigation: React.FC = () => {
         className={router.pathname === '/new-post' ? classes.active : undefined}
       >
         <Link href="/new-post">NEW POST</Link>
+      </li>
+      <li
+        className={
+          router.pathname === '/analytics' ? classes.active : undefined
+        }
+      >
+        <Link href="/analytics">ANALYTICS</Link>
       </li>
     </ul>
   );

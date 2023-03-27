@@ -31,8 +31,10 @@ export async function getStaticProps() {
           post
         ): {
           country: string;
+          date: string;
         } => ({
           country: post.country,
+          date: post.date,
         })
       ),
     },

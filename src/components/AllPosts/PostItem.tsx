@@ -13,7 +13,7 @@ const PostItem: React.FC<{
     <div className={classes.item}>
       <h2>{props.title}</h2>
       <img src={props.image} alt={props.title} />
-      <h4>Published by: {props.name}</h4>
+      <h4>Author: {props.name}</h4>
       <p>{props.date}</p>
       <Link href={'/' + props.id}>See more</Link>
     </div>
