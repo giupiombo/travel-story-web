@@ -18,6 +18,9 @@ const MainNavigation: React.FC = () => {
     <div className={classes.headerMobile}>
       <ul>
         <li>
+          <p>TravelStory</p>
+        </li>
+        <li>
           <Link href="/">
             <Image src={home} alt="home" width={25} height={25} />
           </Link>

@@ -13,6 +13,7 @@ import {
   Title,
 } from 'chart.js';
 import { Doughnut, Line } from 'react-chartjs-2';
+import { useMediaQuery } from 'react-responsive';
 
 ChartJS.register(
   ArcElement,
@@ -26,6 +27,10 @@ ChartJS.register(
 );
 
 const Analytics: React.FC<{ posts: any }> = (props) => {
+  const isMobile = useMediaQuery({
+    query: '(max-width: 1000px)',
+  });
+
   let datasetCountry: { label: string[]; data: number[] } = {
     label: [],
     data: [],
@@ -126,13 +131,20 @@ const Analytics: React.FC<{ posts: any }> = (props) => {
         <title>Analytics</title>
       </Head>
       <div className={classes.analytics}>
-        <div className={classes.card}>
+        <div className={isMobile ? classes.cardMobile : classes.card}>
           <h2>Number of Posts per Country</h2>
-          <Doughnut data={dataCountry} className={classes.doughnut} />
+          <Doughnut
+            data={dataCountry}
+            className={isMobile ? undefined : classes.doughnut}
+          />
         </div>
-        <div className={classes.card}>
+        <div className={isMobile ? classes.cardMobile : classes.card}>
           <h2>Number of Posts per Month</h2>
-          <Line options={options} data={dataMonth} className={classes.line} />
+          <Line
+            options={options}
+            data={dataMonth}
+            className={isMobile ? undefined : classes.line}
+          />
         </div>
       </div>
     </>
