@@ -2,10 +2,6 @@ import classes from './MainNavigation.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from 'react-responsive';
-import Image from 'next/image';
-import plus from '../../images/plus.png';
-import home from '../../images/home.png';
-import analytics from '../../images/analytics.png';
 import { slide as Menu } from 'react-burger-menu';
 
 const MainNavigation: React.FC = () => {
@@ -70,28 +66,6 @@ const MainNavigation: React.FC = () => {
   };
 
   const mobileView = (
-    // <div className={classes.headerMobile}>
-    //   <ul>
-    //     <li>
-    //       <p>TravelStory</p>
-    //     </li>
-    //     <li>
-    //       <Link href="/">
-    //         <Image src={home} alt="home" width={25} height={25} />
-    //       </Link>
-    //     </li>
-    //     <li>
-    //       <Link href="/new-post">
-    //         <Image src={plus} alt="plus" width={25} height={25} />
-    //       </Link>
-    //     </li>
-    //     <li>
-    //       <Link href="/analytics">
-    //         <Image src={analytics} alt="analytics" width={25} height={25} />
-    //       </Link>
-    //     </li>
-    //   </ul>
-    // </div>
     <div className={classes.burger}>
       <Menu styles={styles}>
         <Link href="/">ALL POSTS</Link>
@@ -128,13 +102,7 @@ const MainNavigation: React.FC = () => {
     </header>
   );
 
-  return (
-    // <header className={classes.header}>
-    //   {!isMobile && <div className={classes.logo}>TravelStory</div>}
-    //   <nav>{isMobile ? mobileView : desktopView}</nav>
-    // </header>
-    isMobile ? mobileView : desktopView
-  );
+  return isMobile ? mobileView : desktopView;
 };
 
 export default MainNavigation;
