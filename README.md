@@ -4,7 +4,7 @@
 
 ### Project Description
 
-Blog where people can add their personal travel stories.
+Developed a blog where people can add their personal travel stories.
 
 ### Architecture
 
